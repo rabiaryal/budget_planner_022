@@ -45,3 +45,5 @@ A new Flutter project.
 Must have a shortcut option for each of the individual expenses
 I will be designing the UI first then only the data part will be integrated, that’s All
 
+
+
