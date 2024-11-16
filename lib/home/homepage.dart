@@ -1,5 +1,5 @@
-import 'package:budget_planner/home/widget/budgetbreakdown.dart';
-import 'package:budget_planner/home/widget/initialbudget.dart';
+import 'package:budget_planner/home/pages/budgetbreakdown.dart';
+import 'package:budget_planner/home/pages/initialbudget.dart';
 import 'package:flutter/material.dart';
 import 'package:budget_planner/Utils/components/round_button.dart';
 // Import your DisplayAlertDialog class
