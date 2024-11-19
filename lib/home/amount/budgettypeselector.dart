@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 class BudgetTypeSelector extends StatelessWidget {
   final Function(String title, Color color) onBudgetTypeSelected;
 
-  const BudgetTypeSelector({required this.onBudgetTypeSelected, Key? key})
-      : super(key: key);
+  const BudgetTypeSelector({required this.onBudgetTypeSelected, super.key});
 
   @override
   Widget build(BuildContext context) {

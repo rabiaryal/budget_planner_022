@@ -9,8 +9,8 @@ class CalculatorGrid extends StatelessWidget {
     required this.onButtonPressed,
     required this.onClearPressed,
     required this.onCalculatePressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,16 +59,16 @@ class CalculatorGrid extends StatelessWidget {
                     : value == '='
                         ? onCalculatePressed
                         : () => onButtonPressed(value),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(10.0 * scaleFactor), // Scale padding
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8), // Decreased radius
+                  ),
+                ),
                 child: Text(
                   value,
                   style:
                       TextStyle(fontSize: 24 * scaleFactor), // Scale font size
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.all(10.0 * scaleFactor), // Scale padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8), // Decreased radius
-                  ),
                 ),
               ),
             );

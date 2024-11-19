@@ -12,8 +12,8 @@ class IOTypes extends StatefulWidget {
     required this.labelText,
     required this.options,
     this.readOnly = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<IOTypes> createState() => _IOTypesState();

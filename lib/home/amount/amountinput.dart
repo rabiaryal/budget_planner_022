@@ -10,8 +10,8 @@ class AmountInput extends StatelessWidget {
     required this.controller,
     required this.labelText,
     this.readOnly = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
