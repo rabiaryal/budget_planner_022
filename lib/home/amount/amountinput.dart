@@ -16,7 +16,7 @@ class AmountInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 110,
+      height: 90,
       padding: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -36,4 +36,3 @@ class AmountInput extends StatelessWidget {
     );
   }
 }
-
