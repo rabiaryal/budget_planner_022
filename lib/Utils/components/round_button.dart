@@ -1,4 +1,5 @@
 import 'package:budget_planner/Utils/color/color.dart';
+import 'package:budget_planner/Utils/style/textstyle.dart';
 import 'package:flutter/material.dart';
 
 class RoundButton extends StatelessWidget {
@@ -12,8 +13,8 @@ class RoundButton extends StatelessWidget {
     required this.title,
     this.loading = false,
     required this.onPress,
-    this.height=40,
-    this.widht= 200,
+    this.height = 40,
+    this.widht = 200,
   });
 
   @override
@@ -21,7 +22,7 @@ class RoundButton extends StatelessWidget {
     return InkWell(
       onTap: onPress,
       child: Container(
-        height:height,
+        height: height,
         width: widht,
         decoration: BoxDecoration(
             color: AppColors.buttonColor,
@@ -33,7 +34,7 @@ class RoundButton extends StatelessWidget {
                   )
                 : Text(
                     title,
-                    style: const TextStyle(color: AppColors.whiteColor),
+                    style: TextStylesOO.button,
                   )),
       ),
     );

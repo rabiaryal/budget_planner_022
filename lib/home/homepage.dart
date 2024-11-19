@@ -1,5 +1,7 @@
+import 'package:budget_planner/Utils/color/color.dart';
 import 'package:budget_planner/Utils/components/boxbutton.dart';
-import 'package:budget_planner/home/budget/initialinfo.dart';
+
+import 'package:budget_planner/home/budget/newalt.dart';
 import 'package:budget_planner/home/pages/budgetbreakdown.dart';
 import 'package:budget_planner/home/pages/initialbudget.dart';
 import 'package:flutter/material.dart';
@@ -53,9 +55,15 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const InitialInfoPage()));
-        }));
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const InitialInfoPage()),
+            );
+          },
+          child: const Icon(Icons.add),
+          backgroundColor: AppColors.buttonColor,
+        ));
   }
 }

@@ -124,7 +124,4 @@ class _CalculatorthemeState extends State<Calculatortheme> {
       ),
     );
   }
-
-
-
 }
