@@ -8,13 +8,13 @@ class RoundButton extends StatelessWidget {
   final double height;
   final double widht;
   const RoundButton({
-    Key? key,
+    super.key,
     required this.title,
     this.loading = false,
     required this.onPress,
     this.height=40,
     this.widht= 200,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
