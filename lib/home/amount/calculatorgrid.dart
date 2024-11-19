@@ -15,10 +15,22 @@ class CalculatorGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final buttons = [
-      '7', '8', '9', 'C',
-      '4', '5', '6', '*',
-      '1', '2', '3', '-',
-      '0', '.', '=', '+',
+      '7',
+      '8',
+      '9',
+      'C',
+      '4',
+      '5',
+      '6',
+      '*',
+      '1',
+      '2',
+      '3',
+      '-',
+      '0',
+      '.',
+      '=',
+      '+',
     ];
 
     // Define the scaling factor
@@ -49,10 +61,14 @@ class CalculatorGrid extends StatelessWidget {
                         : () => onButtonPressed(value),
                 child: Text(
                   value,
-                  style: TextStyle(fontSize: 24 * scaleFactor), // Scale font size
+                  style:
+                      TextStyle(fontSize: 24 * scaleFactor), // Scale font size
                 ),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.all(10.0 * scaleFactor), // Scale padding
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8), // Decreased radius
+                  ),
                 ),
               ),
             );

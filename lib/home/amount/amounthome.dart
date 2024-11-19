@@ -45,10 +45,12 @@ class _InitialInfoPageState extends State<InitialInfoPage> {
   }
 
   List<String> decideOption(String title) {
-    if (_titleString == title) {
+    if (title == "Expense") {
       return expenseItem;
-    } else {
+    } else if (title == "Income") {
       return incomeItem;
+    } else {
+      return [];
     }
   }
 
@@ -90,7 +92,7 @@ class _InitialInfoPageState extends State<InitialInfoPage> {
         onTap: () => FocusScope.of(context).unfocus(),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Column(
               children: [
                 BudgetTypeSelector(
