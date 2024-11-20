@@ -3,6 +3,8 @@ import 'package:budget_planner/home/amount/amountinput.dart';
 import 'package:budget_planner/home/amount/budgettypeselector.dart';
 import 'package:budget_planner/home/amount/calculatorgrid.dart';
 import 'package:budget_planner/home/amount/typescontainer.dart';
+import 'package:budget_planner/home/storage/datamodels.dart';
+import 'package:budget_planner/home/storage/financialdatamodel.dart';
 
 import 'package:flutter/material.dart';
 import 'package:function_tree/function_tree.dart';
@@ -20,6 +22,7 @@ class _InitialInfoPageState extends State<InitialInfoPage> {
   final TextEditingController _remarksController = TextEditingController();
   final TextEditingController _selectController = TextEditingController();
   String _titleString = '';
+  final manager = FinancialDataManager();
 
   final List<String> expenseItem = [
     "Essential",
@@ -44,15 +47,17 @@ class _InitialInfoPageState extends State<InitialInfoPage> {
     });
   }
 
-  List<String> decideOption(String title) {
-    if (title == "Expense") {
-      return expenseItem;
-    } else if (title == "Income") {
-      return incomeItem;
-    } else {
-      return [];
-    }
+ List<String> decideOption(String title) {
+  if (title == "Expense") {
+    // Ensure these values are unique and properly set
+    return expenseItem;
+  } else if (title == "Income") {
+    // Ensure these values are unique and properly set
+    return incomeItem;
+  } else {
+    return [];
   }
+}
 
   void _onButtonPressed(String value) {
     setState(() {
@@ -79,9 +84,24 @@ class _InitialInfoPageState extends State<InitialInfoPage> {
     _remarksController.clear();
   }
 
-  void _amountAdded() {
-    // Logic for adding the amount
-  }
+  Future<void> _amountAdded() async {
+  final timestamp = DateTime.now().millisecondsSinceEpoch.toString(); // Unique key
+  final expenseData = FinancialData(
+    amountType: _titleString,
+    expenseType: _selectController.text,  
+    incomeType: _titleString == 'Income' ? _selectController.text : '',
+    incomeAmount: _titleString == 'Income' ? double.tryParse(_amountController.text) ?? 0.0 : 0.0,
+    expenseAmount: _titleString == 'Expense' ? double.tryParse(_amountController.text) ?? 0.0 : 0.0,
+    remarks: _remarksController.text,
+  );
+  
+  await manager.saveFinancialData('financial_data_$timestamp', expenseData);
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(content: Text('Data saved successfully!')),
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {

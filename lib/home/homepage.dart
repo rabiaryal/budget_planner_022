@@ -2,6 +2,7 @@ import 'package:budget_planner/Utils/color/color.dart';
 import 'package:budget_planner/Utils/components/boxbutton.dart';
 
 import 'package:budget_planner/home/amount/amounthome.dart';
+import 'package:budget_planner/home/display/maindisplay.dart';
 import 'package:budget_planner/home/pages/budgetbreakdown.dart';
 import 'package:budget_planner/home/pages/initialbudget.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,14 @@ class _HomePageState extends State<HomePage> {
                 widht: MediaQuery.of(context).size.height * 0.4,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-              BoxButtonWidget(title: "Tap Me", onPressed: () {})
+              BoxButtonWidget(
+                  title: "Tap Me",
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DisplayDataPage()));
+                  })
             ],
           ),
         ),
