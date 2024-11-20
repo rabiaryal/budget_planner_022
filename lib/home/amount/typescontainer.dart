@@ -1,11 +1,14 @@
-import 'package:budget_planner/Utils/style/textstyle.dart';
+import 'package:budget_planner/home/provider%20state/providerselectoption.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class IOTypes extends StatefulWidget {
+import 'package:budget_planner/Utils/style/textstyle.dart';
+
+class IOTypes extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
   final bool readOnly;
-  final List<String> options; // Options for the dropdown
+  final List<String> options;
 
   const IOTypes({
     required this.controller,
@@ -16,14 +19,8 @@ class IOTypes extends StatefulWidget {
   });
 
   @override
-  State<IOTypes> createState() => _IOTypesState();
-}
-
-class _IOTypesState extends State<IOTypes> {
-  String? _selectedValue;
-
-  @override
   Widget build(BuildContext context) {
+    // Use Consumer to listen for changes in the SelectionOptionProvider
     return Container(
       height: 120,
       width: double.infinity, // Ensures the container takes up the full width
@@ -38,46 +35,49 @@ class _IOTypesState extends State<IOTypes> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              widget.labelText,
+              labelText,
               style: TextStylesOO.label,
             ),
-            DropdownButton<String>(
-                value: _selectedValue,
-                hint: const Text(
-                  'Select Option',
-                  style: TextStylesOO.input,
-                  textAlign: TextAlign.right,
-                ),
-                isExpanded: true,
-                items: widget.options.map((String option) {
-                  return DropdownMenuItem<String>(
-                    value: option,
-                    child: Card(
-                      color: Colors.lightBlue[200],
-                      elevation: 2,
-                      child: SizedBox(
-                        width: double.infinity, // Sets the width
-                        height: 50, // Sets the height of the card
-                        child: Center(
-                          child: Text(
-                            option,
-                            style: TextStylesOO.input,
+            Consumer<SelectionOptionProvider>(  // Use Consumer to listen for state changes
+              builder: (context, provider, child) {
+                return DropdownButton<String>(
+                  value: provider.selectedValue,
+                  hint: const Text(
+                    'Select Option',
+                    style: TextStylesOO.input,
+                    textAlign: TextAlign.right,
+                  ),
+                  isExpanded: true,
+                  items: options.map((String option) {
+                    return DropdownMenuItem<String>(
+                      value: option,
+                      child: Card(
+                        color: Colors.lightBlue[200],
+                        elevation: 2,
+                        child: SizedBox(
+                          width: double.infinity, // Sets the width
+                          height: 50, // Sets the height of the card
+                          child: Center(
+                            child: Text(
+                              option,
+                              style: TextStylesOO.input,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  );
-                }).toList(),
-                onChanged: widget.readOnly
-                    ? null
-                    : (String? newValue) {
-                        setState(() {
-                          _selectedValue = newValue;
-                          widget.controller.text =
-                              newValue ?? ''; // Update the controller
-                        });
-                      },
-                dropdownColor: Colors.transparent),
+                    );
+                  }).toList(),
+                  onChanged: readOnly
+                      ? null
+                      : (String? newValue) {
+                          // Update the provider's selected value when a new option is selected
+                          provider.setSelectedValue(newValue);
+                          controller.text = newValue ?? ''; // Update the controller
+                        },
+                  dropdownColor: Colors.transparent,
+                );
+              },
+            ),
           ],
         ),
       ),

@@ -1,8 +1,12 @@
 import 'package:budget_planner/home/homepage.dart';
+import 'package:budget_planner/home/provider%20state/providerselectoption.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context)=>SelectionOptionProvider(),
+    child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
