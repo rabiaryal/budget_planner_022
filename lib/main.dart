@@ -1,11 +1,12 @@
 import 'package:budget_planner/home/homepage.dart';
-import 'package:budget_planner/home/provider%20state/providerselectoption.dart';
+import 'package:budget_planner/home/provider%20state/initialinfoprovider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
-    create: (context)=>SelectionOptionProvider(),
+    create: (context)=>InitialInfoProvider(),
     child: const MyApp()));
 }
 

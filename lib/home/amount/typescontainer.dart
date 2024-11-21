@@ -1,4 +1,5 @@
-import 'package:budget_planner/home/provider%20state/providerselectoption.dart';
+ // Use the merged provider
+import 'package:budget_planner/home/provider%20state/initialinfoprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +21,6 @@ class IOTypes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Use Consumer to listen for changes in the SelectionOptionProvider
     return Container(
       height: 120,
       width: double.infinity, // Ensures the container takes up the full width
@@ -38,10 +38,10 @@ class IOTypes extends StatelessWidget {
               labelText,
               style: TextStylesOO.label,
             ),
-            Consumer<SelectionOptionProvider>(  // Use Consumer to listen for state changes
+            Consumer<InitialInfoProvider>( // Use the merged provider
               builder: (context, provider, child) {
                 return DropdownButton<String>(
-                  value: provider.selectedValue,
+                  value: provider.selectedValue, // Use the selected value from the provider
                   hint: const Text(
                     'Select Option',
                     style: TextStylesOO.input,

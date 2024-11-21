@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InitialInfoProvider extends ChangeNotifier {
+  // Fields for InitialInfoProvider
   Color _backgroundColor = Colors.blue;
   String _titleString = '';
   String _selectedOption = '';
@@ -8,10 +9,14 @@ class InitialInfoProvider extends ChangeNotifier {
   final TextEditingController remarksController = TextEditingController();
   final TextEditingController selectController = TextEditingController();
 
+  // New field from SelectionOptionProvider
+  String? _selectedValue;
+
   // Getters
   Color get backgroundColor => _backgroundColor;
   String get titleString => _titleString;
   String get selectedOption => _selectedOption;
+  String? get selectedValue => _selectedValue;
 
   // Setters and business logic
   void updateBudgetType(String title, Color color) {
@@ -33,6 +38,12 @@ class InitialInfoProvider extends ChangeNotifier {
 
   void updateSelectedOption(String option) {
     _selectedOption = option;
+    notifyListeners();
+  }
+
+  // New method from SelectionOptionProvider
+  void setSelectedValue(String? newValue) {
+    _selectedValue = newValue;
     notifyListeners();
   }
 
