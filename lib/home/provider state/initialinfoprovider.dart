@@ -28,9 +28,11 @@ class InitialInfoProvider extends ChangeNotifier {
 
   List<String> decideOption(String title) {
     if (title == "Expense") {
-      return ["Essential", "Non-Essential", "Financial Obligations", "Saving And Investment"];
+      return ["Essential", "Non-Essential", 
+      "Financial Obligations", "Saving And Investment"];
     } else if (title == "Income") {
-      return ["Active Income", "Investment Income", "Passive Income", "Government and Social Support"];
+      return ["Active Income", "Investment Income", 
+      "Passive Income", "Government and Social Support"];
     } else {
       return [];
     }

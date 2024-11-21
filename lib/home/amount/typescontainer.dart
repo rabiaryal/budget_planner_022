@@ -1,9 +1,8 @@
- // Use the merged provider
-import 'package:budget_planner/home/provider%20state/initialinfoprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:budget_planner/Utils/style/textstyle.dart';
+import 'package:budget_planner/home/provider%20state/initialinfoprovider.dart'; // Updated provider import
 
 class IOTypes extends StatelessWidget {
   final TextEditingController controller;
@@ -21,6 +20,7 @@ class IOTypes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Use Consumer to listen for changes in the InitialInfoProvider
     return Container(
       height: 120,
       width: double.infinity, // Ensures the container takes up the full width
@@ -38,44 +38,51 @@ class IOTypes extends StatelessWidget {
               labelText,
               style: TextStylesOO.label,
             ),
-            Consumer<InitialInfoProvider>( // Use the merged provider
+            Consumer<InitialInfoProvider>(
+              // Use Consumer to listen for state changes
               builder: (context, provider, child) {
                 return DropdownButton<String>(
-                  value: provider.selectedValue, // Use the selected value from the provider
-                  hint: const Text(
-                    'Select Option',
-                    style: TextStylesOO.input,
-                    textAlign: TextAlign.right,
-                  ),
-                  isExpanded: true,
-                  items: options.map((String option) {
-                    return DropdownMenuItem<String>(
-                      value: option,
-                      child: Card(
-                        color: Colors.lightBlue[200],
-                        elevation: 2,
-                        child: SizedBox(
-                          width: double.infinity, // Sets the width
-                          height: 50, // Sets the height of the card
-                          child: Center(
-                            child: Text(
-                              option,
-                              style: TextStylesOO.input,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }).toList(),
-                  onChanged: readOnly
-                      ? null
-                      : (String? newValue) {
-                          // Update the provider's selected value when a new option is selected
-                          provider.setSelectedValue(newValue);
-                          controller.text = newValue ?? ''; // Update the controller
-                        },
-                  dropdownColor: Colors.transparent,
-                );
+  value: provider.selectedOption.isNotEmpty && options.contains(provider.selectedOption)
+      ? provider.selectedOption
+      : null, // Default to null if no match
+  hint: const Text(
+    'Select Option',
+    style: TextStylesOO.input,
+    textAlign: TextAlign.right,
+  ),
+  isExpanded: true,
+  items: options.map((String option) {
+    return DropdownMenuItem<String>(
+      value: option,
+      child: Card(
+        color: Colors.lightBlue[200],
+        elevation: 2,
+        child: SizedBox(
+          width: double.infinity,
+          height: 50,
+          child: Center(
+            child: Text(
+              option,
+              style: TextStylesOO.input,
+            ),
+          ),
+        ),
+      ),
+    );
+  }).toList(),
+  onChanged: readOnly
+      ? null
+      : (String? newValue) {
+          if (newValue != null) {
+            provider.updateSelectedOption(newValue);
+            controller.text = newValue; // Update the controller
+          }
+        },
+  dropdownColor: Colors.transparent,
+);
+
+                
+             
               },
             ),
           ],
