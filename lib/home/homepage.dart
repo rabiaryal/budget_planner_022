@@ -4,6 +4,10 @@ import 'package:budget_planner/Utils/style/textstyle.dart';
 
 import 'package:budget_planner/home/amount/amounthome.dart';
 import 'package:budget_planner/home/display/maindisplay.dart';
+import 'package:budget_planner/home/widget/chart01.dart';
+import 'package:budget_planner/home/widget/pie_chart01.dart';
+import 'package:budget_planner/home/widget/pie_chart02.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 import 'package:flutter/material.dart';
 
@@ -15,13 +19,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final data = [33.0, 25.0, 12.0, 24.0, 6.0];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.buttonColor,
           centerTitle: true,
-          title:const Text(
+          title: Text(
             "Budget Planner",
             style: TextStylesOO.button,
           ),
@@ -40,7 +45,12 @@ class _HomePageState extends State<HomePage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => DisplayDataPage()));
-                  })
+                  }),
+             const  SizedBox(
+                height: 400,
+                width: double.infinity,
+                child: PieChartSample2(),
+              )
             ],
           ),
         ),

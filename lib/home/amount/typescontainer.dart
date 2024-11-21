@@ -42,47 +42,45 @@ class IOTypes extends StatelessWidget {
               // Use Consumer to listen for state changes
               builder: (context, provider, child) {
                 return DropdownButton<String>(
-  value: provider.selectedOption.isNotEmpty && options.contains(provider.selectedOption)
-      ? provider.selectedOption
-      : null, // Default to null if no match
-  hint: const Text(
-    'Select Option',
-    style: TextStylesOO.input,
-    textAlign: TextAlign.right,
-  ),
-  isExpanded: true,
-  items: options.map((String option) {
-    return DropdownMenuItem<String>(
-      value: option,
-      child: Card(
-        color: Colors.lightBlue[200],
-        elevation: 2,
-        child: SizedBox(
-          width: double.infinity,
-          height: 50,
-          child: Center(
-            child: Text(
-              option,
-              style: TextStylesOO.input,
-            ),
-          ),
-        ),
-      ),
-    );
-  }).toList(),
-  onChanged: readOnly
-      ? null
-      : (String? newValue) {
-          if (newValue != null) {
-            provider.updateSelectedOption(newValue);
-            controller.text = newValue; // Update the controller
-          }
-        },
-  dropdownColor: Colors.transparent,
-);
-
-                
-             
+                  value: provider.selectedOption.isNotEmpty &&
+                          options.contains(provider.selectedOption)
+                      ? provider.selectedOption
+                      : null, // Default to null if no match
+                  hint: Text(
+                    'Select Option',
+                    style: TextStylesOO.input,
+                    textAlign: TextAlign.right,
+                  ),
+                  isExpanded: true,
+                  items: options.map((String option) {
+                    return DropdownMenuItem<String>(
+                      value: option,
+                      child: Card(
+                        color: Colors.lightBlue[200],
+                        elevation: 2,
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 50,
+                          child: Center(
+                            child: Text(
+                              option,
+                              style: TextStylesOO.input,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: readOnly
+                      ? null
+                      : (String? newValue) {
+                          if (newValue != null) {
+                            provider.updateSelectedOption(newValue);
+                            controller.text = newValue; // Update the controller
+                          }
+                        },
+                  dropdownColor: Colors.transparent,
+                );
               },
             ),
           ],

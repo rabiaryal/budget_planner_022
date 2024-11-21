@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TextStylesOO {
-  static const TextStyle title = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
-    color: Colors.black,
+  // Title style (bold and formal)
+  static TextStyle title = GoogleFonts.robotoSlab(
+    textStyle: const TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
   );
 
-  static const TextStyle input = TextStyle(
-    fontSize: 24,
-    color: Colors.black,
+  // Input text style (simple and modern)
+  static TextStyle input = GoogleFonts.poppins(
+    textStyle: const TextStyle(
+      fontSize: 24,
+      color: Colors.black,
+    ),
   );
 
-  static const TextStyle label = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w600,
-    color: Colors.orangeAccent,
+  // Label text style (attention-grabbing and decorative)
+  static TextStyle label = GoogleFonts.playfairDisplay(
+    textStyle: const TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      color: Colors.orangeAccent,
+    ),
   );
 
-  static const TextStyle button = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.w500,
-    color: Colors.white,
+  // Button text style (clear and readable)
+  static TextStyle button = GoogleFonts.lato(
+    textStyle: const TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.w500,
+      color: Colors.white,
+    ),
   );
 }
