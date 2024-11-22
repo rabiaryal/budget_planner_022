@@ -1,4 +1,5 @@
 import 'package:budget_planner/Utils/components/round_button.dart';
+import 'package:budget_planner/profilepage/notification/notificationhoem.dart';
 import 'package:budget_planner/profilepage/setting/settinghome.dart';
 import 'package:budget_planner/profilepage/widget/listtilewidget.dart';
 import 'package:budget_planner/profilepage/uploadinfo/uploadinfo.dart';
@@ -123,6 +124,11 @@ class _SettingHomePageState extends State<SettingHomePage> {
                 leadingIcon: Icons.notifications_outlined,
                 titleText: "Notification",
                 onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationPAge(),
+                      ));
                   // Handle notifications action
                 },
               ),

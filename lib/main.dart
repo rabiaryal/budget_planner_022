@@ -1,5 +1,6 @@
 import 'package:budget_planner/home/homepage.dart';
 import 'package:budget_planner/home/provider%20state/initialinfoprovider.dart';
+import 'package:budget_planner/profilepage/notification/provider/notificationprovider.dart';
 import 'package:budget_planner/provider/themeprovider.dart';
 
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => InitialInfoProvider()),
     ChangeNotifierProvider(create: (context) => ThemeNotifier()),
+    ChangeNotifierProvider(create: (context)=>NotificationProvider())
   ], child: const MyApp()));
 }
 
