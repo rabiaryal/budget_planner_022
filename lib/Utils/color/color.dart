@@ -4,4 +4,6 @@ class AppColors {
   static const Color blackColor = Color(0x0ff00000);
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color buttonColor = Colors.deepPurple;
+  static const Color buttonColor01 = Color.fromARGB(255, 184, 39, 152); // Standard pink
+
 }

@@ -1,3 +1,6 @@
+import 'package:budget_planner/Utils/color/color.dart';
+import 'package:budget_planner/Utils/components/round_button.dart';
+import 'package:budget_planner/Utils/style/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -37,7 +40,8 @@ class GetStartedPage extends StatelessWidget {
               const SizedBox(height: 30),
               // Input Fields
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -77,8 +81,8 @@ class GetStartedPage extends StatelessWidget {
                     TextField(
                       obscureText: true,
                       decoration: InputDecoration(
-                        labelText: "Password",
-                        hintText: "Enter Password",
+                        labelText: "UserName",
+                        hintText: "Enter UserName",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -110,29 +114,37 @@ class GetStartedPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     // Sign Up Button
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // Handle sign up
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          padding: const EdgeInsets.symmetric(vertical: 15),
-                        ),
-                        child: const Text(
-                          "Sign up",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    RoundButton(
+                        height: 60,
+                        title: 'Register',
+                        onPress: () {},
+                        buttonColor: AppColors.buttonColor01,
+                        myStyle: TextStylesOO.button),
+
+                    // SizedBox(
+                    //   width: double.infinity,
+                    //   child: ElevatedButton(
+                    //     onPressed: () {
+                    //       // Handle sign up
+                    //     },
+                    //     style: ElevatedButton.styleFrom(
+                    //       backgroundColor: Colors.blue,
+                    //       shape: RoundedRectangleBorder(
+                    //         borderRadius: BorderRadius.circular(10),
+                    //       ),
+                    //       padding: const EdgeInsets.symmetric(vertical: 15),
+                    //     ),
+                    //     child: const Text(
+                    //       "Register",
+                    //       style: TextStyle(
+                    //         color: Colors.white,
+                    //         fontSize: 16,
+                    //         fontWeight: FontWeight.bold,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+
                     const SizedBox(height: 20),
                     // Social Media Login
                     Row(
@@ -153,26 +165,30 @@ class GetStartedPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         IconButton(
-                          icon: const Icon(Icons.facebook, color: Colors.blue),
+                          icon: const Icon(Icons.facebook,
+                              color: Colors.deepPurpleAccent),
                           onPressed: () {
                             // Handle Facebook login
                           },
                         ),
                         IconButton(
-                          icon:  Icon(const FaIcon(FontAwesomeIcons.twitter,
-                           color: Colors.lightBlue) as IconData?, color: Colors.lightBlue),
+                          icon: const Icon(FontAwesomeIcons.twitter,
+                              color: Colors.deepPurpleAccent),
+                          color: Colors.lightBlue,
                           onPressed: () {
                             // Handle Twitter login
                           },
                         ),
                         IconButton(
-                          icon: const Icon(Icons.g_translate, color: Colors.red),
+                          icon: const Icon(FontAwesomeIcons.google,
+                              color: Colors.deepPurpleAccent),
                           onPressed: () {
                             // Handle Google login
                           },
                         ),
                         IconButton(
-                          icon: const Icon(Icons.apple, color: Colors.black),
+                          icon: const Icon(Icons.apple,
+                              color: Colors.deepPurpleAccent),
                           onPressed: () {
                             // Handle Apple login
                           },
@@ -184,7 +200,7 @@ class GetStartedPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Already have an account? "),
+                        const Text("Account Already Register? "),
                         GestureDetector(
                           onTap: () {
                             // Navigate to sign in
@@ -205,4 +221,6 @@ class GetStartedPage extends StatelessWidget {
       ),
     );
   }
+
+
 }

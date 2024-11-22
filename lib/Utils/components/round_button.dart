@@ -9,14 +9,16 @@ class RoundButton extends StatelessWidget {
   final double height;
   final double widht;
   final Color buttonColor;
-  const RoundButton({
+  final TextStyle? myStyle;
+ const   RoundButton({
     super.key,
     required this.title,
     this.loading = false,
     required this.onPress,
     this.height = 40,
     this.widht = 200,
-    this.buttonColor=AppColors.buttonColor,
+    this.buttonColor = AppColors.buttonColor,
+    this.myStyle,
   });
 
   @override
@@ -26,11 +28,9 @@ class RoundButton extends StatelessWidget {
       child: Container(
         height: height,
         width: widht,
-         padding: const EdgeInsets.symmetric(vertical: 15),
-                 
+        padding: const EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
-            color: buttonColor,
-            borderRadius: BorderRadius.circular(10)),
+            color: buttonColor, borderRadius: BorderRadius.circular(10)),
         child: Center(
             child: loading
                 ? const CircularProgressIndicator(
@@ -38,7 +38,7 @@ class RoundButton extends StatelessWidget {
                   )
                 : Text(
                     title,
-                    style: TextStylesOO.button,
+                    style: myStyle??TextStylesOO.button,
                   )),
       ),
     );
