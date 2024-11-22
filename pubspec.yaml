@@ -35,6 +35,8 @@ dependencies:
   fl_chart: ^0.69.1
   flutter:
     sdk: flutter
+  flutter_dropdown: ^1.0.1+hotfix.1
+  flutter_multiselect: ^1.0.0
   fluttertoast: ^8.2.8
   function_tree: ^0.9.1
   google_fonts: ^6.2.1

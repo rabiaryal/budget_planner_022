@@ -8,6 +8,7 @@ class RoundButton extends StatelessWidget {
   final VoidCallback onPress;
   final double height;
   final double widht;
+  final Color buttonColor;
   const RoundButton({
     super.key,
     required this.title,
@@ -15,6 +16,7 @@ class RoundButton extends StatelessWidget {
     required this.onPress,
     this.height = 40,
     this.widht = 200,
+    this.buttonColor=AppColors.buttonColor,
   });
 
   @override
@@ -24,8 +26,10 @@ class RoundButton extends StatelessWidget {
       child: Container(
         height: height,
         width: widht,
+         padding: const EdgeInsets.symmetric(vertical: 15),
+                 
         decoration: BoxDecoration(
-            color: AppColors.buttonColor,
+            color: buttonColor,
             borderRadius: BorderRadius.circular(10)),
         child: Center(
             child: loading

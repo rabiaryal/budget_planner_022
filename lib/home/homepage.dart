@@ -3,10 +3,12 @@ import 'package:budget_planner/Utils/components/boxbutton.dart';
 import 'package:budget_planner/Utils/style/textstyle.dart';
 
 import 'package:budget_planner/home/amount/amounthome.dart';
+import 'package:budget_planner/home/display/dropdown.dart';
 import 'package:budget_planner/home/display/maindisplay.dart';
 import 'package:budget_planner/home/widget/chart01.dart';
 import 'package:budget_planner/home/widget/pie_chart01.dart';
 import 'package:budget_planner/home/widget/pie_chart02.dart';
+import 'package:budget_planner/setting/settinghomepage.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 import 'package:flutter/material.dart';
@@ -30,6 +32,23 @@ class _HomePageState extends State<HomePage> {
             "Budget Planner",
             style: TextStylesOO.button,
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingHomePage()));
+              },
+              icon: const Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: const Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                ),
+              ),
+            )
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
@@ -44,9 +63,10 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DisplayDataPage()));
+                            builder: (context) => const DisplayDataPage()));
                   }),
-             const  SizedBox(
+              Container(height: 200, child: MyFlutterDropdown()),
+              const SizedBox(
                 height: 400,
                 width: double.infinity,
                 child: PieChartSample2(),
