@@ -19,6 +19,17 @@ class TextStylesOO {
     ),
   );
 
+  // TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+
+  static TextStyle normalText = GoogleFonts.roboto(
+textStyle: const TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+   color: Colors.black,
+)
+
+  );
+
   // Label text style (attention-grabbing and decorative)
   static TextStyle label = GoogleFonts.playfairDisplay(
     textStyle: const TextStyle(

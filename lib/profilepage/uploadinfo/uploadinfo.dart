@@ -1,9 +1,10 @@
 import 'package:budget_planner/Utils/color/color.dart';
 import 'package:budget_planner/Utils/components/round_button.dart';
 import 'package:budget_planner/Utils/style/textstyle.dart';
-import 'package:budget_planner/home/widget/textformfield.dart';
+import 'package:budget_planner/profilepage/uploadinfo/widget/dobwidget.dart';
+import 'package:budget_planner/profilepage/uploadinfo/widget/textwidget.dart';
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class UploadInfoWidget extends StatelessWidget {
   UploadInfoWidget({super.key});
@@ -12,6 +13,8 @@ class UploadInfoWidget extends StatelessWidget {
   final TextEditingController _controller02 = TextEditingController();
 
   final TextEditingController _controller03 = TextEditingController();
+
+  final TextEditingController dobController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,40 +64,61 @@ class UploadInfoWidget extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
+                    const TextWidget(text: 'Enter Full Name'),
+                    const SizedBox(height: 8),
                     // Full Name
                     TextField(
                       decoration: InputDecoration(
                         labelText: "Full Name",
-                        hintText: "Enter Full Name",
+                        hintText: "Bijay Raj Pokherel",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
+
+                    DateOfBirthSelector(dobController: dobController),
+                    const SizedBox(height: 10),
+                    const TextWidget(text: 'Enter Email '),
+                    const SizedBox(height: 8),
                     // Email
                     TextField(
                       decoration: InputDecoration(
                         labelText: "Email",
-                        hintText: "Enter Email",
+                        hintText: "bijay@gmail.com",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
+                    const TextWidget(text: 'Enter UserName'),
+                    const SizedBox(height: 8),
                     // Password
                     TextField(
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: "UserName",
-                        hintText: "Enter UserName",
+                        hintText: "@bijayraj",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
+                    const TextWidget(text: 'Phone Number'),
+                    const SizedBox(height: 8),
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: "Phone Number",
+                        hintText: "980000000",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
                     // Terms and Conditions
                     Row(
                       children: [
@@ -126,98 +150,6 @@ class UploadInfoWidget extends StatelessWidget {
                         onPress: () {},
                         buttonColor: AppColors.buttonColor01,
                         myStyle: TextStylesOO.button),
-
-                    // SizedBox(
-                    //   width: double.infinity,
-                    //   child: ElevatedButton(
-                    //     onPressed: () {
-                    //       // Handle sign up
-                    //     },
-                    //     style: ElevatedButton.styleFrom(
-                    //       backgroundColor: Colors.blue,
-                    //       shape: RoundedRectangleBorder(
-                    //         borderRadius: BorderRadius.circular(10),
-                    //       ),
-                    //       padding: const EdgeInsets.symmetric(vertical: 15),
-                    //     ),
-                    //     child: const Text(
-                    //       "Register",
-                    //       style: TextStyle(
-                    //         color: Colors.white,
-                    //         fontSize: 16,
-                    //         fontWeight: FontWeight.bold,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-
-                    // const SizedBox(height: 20),
-                    // // Social Media Login
-                    // Row(
-                    //   children: [
-                    //     const Expanded(child: Divider(color: Colors.grey)),
-                    //     Padding(
-                    //       padding: const EdgeInsets.symmetric(horizontal: 10),
-                    //       child: Text(
-                    //         "OR Register With ...",
-                    //         style: TextStyle(color: Colors.grey.shade700),
-                    //       ),
-                    //     ),
-                    //     const Expanded(child: Divider(color: Colors.grey)),
-                    //   ],
-                    // ),
-                    // const SizedBox(height: 15),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    //   children: [
-                    //     IconButton(
-                    //       icon: const Icon(Icons.facebook,
-                    //           color: Colors.deepPurpleAccent),
-                    //       onPressed: () {
-                    //         // Handle Facebook login
-                    //       },
-                    //     ),
-                    //     IconButton(
-                    //       icon: const Icon(FontAwesomeIcons.twitter,
-                    //           color: Colors.deepPurpleAccent),
-                    //       color: Colors.lightBlue,
-                    //       onPressed: () {
-                    //         // Handle Twitter login
-                    //       },
-                    //     ),
-                    //     IconButton(
-                    //       icon: const Icon(FontAwesomeIcons.google,
-                    //           color: Colors.deepPurpleAccent),
-                    //       onPressed: () {
-                    //         // Handle Google login
-                    //       },
-                    //     ),
-                    //     IconButton(
-                    //       icon: const Icon(Icons.apple,
-                    //           color: Colors.deepPurpleAccent),
-                    //       onPressed: () {
-                    //         // Handle Apple login
-                    //       },
-                    //     ),
-                    //   ],
-                    // ),
-                    // const SizedBox(height: 20),
-                    // // Already have an account
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     const Text("Account Already Register? "),
-                    //     GestureDetector(
-                    //       onTap: () {
-                    //         // Navigate to sign in
-                    //       },
-                    //       child: Text(
-                    //         "Sign up",
-                    //         style: TextStyle(color: Colors.blue.shade700),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
                   ],
                 ),
               ),

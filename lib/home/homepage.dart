@@ -5,11 +5,10 @@ import 'package:budget_planner/Utils/style/textstyle.dart';
 import 'package:budget_planner/home/amount/amounthome.dart';
 import 'package:budget_planner/home/display/dropdown.dart';
 import 'package:budget_planner/home/display/maindisplay.dart';
-import 'package:budget_planner/home/widget/chart01.dart';
-import 'package:budget_planner/home/widget/pie_chart01.dart';
+
 import 'package:budget_planner/home/widget/pie_chart02.dart';
-import 'package:budget_planner/setting/settinghomepage.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:budget_planner/profilepage/profilehomepage.dart';
+
 
 import 'package:flutter/material.dart';
 

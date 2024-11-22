@@ -1,6 +1,6 @@
 import 'package:budget_planner/Utils/components/round_button.dart';
-import 'package:budget_planner/setting/widget/listtilewidget.dart';
-import 'package:budget_planner/setting/widget/uploadinfo.dart';
+import 'package:budget_planner/profilepage/widget/listtilewidget.dart';
+import 'package:budget_planner/profilepage/uploadinfo/uploadinfo.dart';
 import 'package:flutter/material.dart';
 // Make sure to import your `ListTileWidget` file
 
@@ -30,14 +30,6 @@ class _SettingHomePageState extends State<SettingHomePage> {
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.more_vert, color: Colors.black),
-            onPressed: () {
-              // Handle menu actions
-            },
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -63,7 +55,7 @@ class _SettingHomePageState extends State<SettingHomePage> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    "John Tianan",
+                    "Rabi Aryal",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -71,7 +63,7 @@ class _SettingHomePageState extends State<SettingHomePage> {
                   ),
                   const SizedBox(height: 5),
                   const Text(
-                    "Pro User",
+                    "@username",
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
@@ -90,6 +82,13 @@ class _SettingHomePageState extends State<SettingHomePage> {
                       MaterialPageRoute(
                           builder: (context) => UploadInfoWidget()));
                   // Handle FAQ action
+                },
+              ),
+              ListTileWidget(
+                leadingIcon: Icons.switch_account,
+                titleText: "Edit Info",
+                onPressed: () {
+                  // Handle switch accounts action
                 },
               ),
               ListTileWidget(
@@ -113,13 +112,7 @@ class _SettingHomePageState extends State<SettingHomePage> {
                   // Handle password action
                 },
               ),
-              ListTileWidget(
-                leadingIcon: Icons.switch_account,
-                titleText: "Switch Accounts",
-                onPressed: () {
-                  // Handle switch accounts action
-                },
-              ),
+
               ListTileWidget(
                 leadingIcon: Icons.notifications_outlined,
                 titleText: "Notification",
