@@ -38,7 +38,7 @@ class RoundButton extends StatelessWidget {
                   )
                 : Text(
                     title,
-                    style: myStyle??TextStylesOO.button,
+                    style: myStyle??TextStylesOO.button(context)
                   )),
       ),
     );

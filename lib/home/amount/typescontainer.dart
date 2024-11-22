@@ -36,7 +36,7 @@ class IOTypes extends StatelessWidget {
           children: [
             Text(
               labelText,
-              style: TextStylesOO.label,
+              style: TextStylesOO.label(context)
             ),
             Consumer<InitialInfoProvider>(
               // Use Consumer to listen for state changes
@@ -48,7 +48,7 @@ class IOTypes extends StatelessWidget {
                       : null, // Default to null if no match
                   hint: Text(
                     'Select Option',
-                    style: TextStylesOO.input,
+                    style: TextStylesOO.input(context),
                     textAlign: TextAlign.right,
                   ),
                   isExpanded: true,
@@ -64,7 +64,7 @@ class IOTypes extends StatelessWidget {
                           child: Center(
                             child: Text(
                               option,
-                              style: TextStylesOO.input,
+                              style: TextStylesOO.input(context)
                             ),
                           ),
                         ),

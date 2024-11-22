@@ -119,7 +119,7 @@ class GetStartedPage extends StatelessWidget {
                         title: 'Register',
                         onPress: () {},
                         buttonColor: AppColors.buttonColor01,
-                        myStyle: TextStylesOO.button),
+                        myStyle: TextStylesOO.button(context)),
 
                     // SizedBox(
                     //   width: double.infinity,

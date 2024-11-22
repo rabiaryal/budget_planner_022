@@ -11,13 +11,13 @@ class BudgetTypeSelector extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        _buildBudgetTypeButton('Income', Colors.green),
-        _buildBudgetTypeButton('Expense', Colors.blue),
+        _buildBudgetTypeButton('Income', Colors.green,  context),
+        _buildBudgetTypeButton('Expense', Colors.blue,context),
       ],
     );
   }
 
-  Widget _buildBudgetTypeButton(String title, Color color) {
+  Widget _buildBudgetTypeButton(String title, Color color, BuildContext context) {
     return GestureDetector(
       onTap: () => onBudgetTypeSelected(title, color),
       child: Container(
@@ -30,7 +30,7 @@ class BudgetTypeSelector extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: TextStylesOO.title,
+            style: TextStylesOO.title(context),
           ),
         ),
       ),

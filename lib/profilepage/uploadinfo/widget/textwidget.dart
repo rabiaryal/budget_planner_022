@@ -14,7 +14,7 @@ class TextWidget extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         text,
-        style: TextStylesOO.normalText,
+        style: TextStylesOO.normalText(context)
       ),
     );
   }

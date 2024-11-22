@@ -24,12 +24,14 @@ class PieChartDisplay extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Text(title, style: TextStylesOO.title),
+            Text(title, style: TextStylesOO.title(context)
+            
+            ),
             const SizedBox(height: 20),
             Expanded(
               child: PieChart(
                 PieChartData(
-                  sections: _generateSections(),
+                  sections: _generateSections(context),
                   sectionsSpace: 3,
                   centerSpaceRadius: 65,
                   borderData: FlBorderData(show: false),
@@ -43,7 +45,7 @@ class PieChartDisplay extends StatelessWidget {
   }
 
   /// Generate sections for the pie chart
-  List<PieChartSectionData> _generateSections() {
+  List<PieChartSectionData> _generateSections(BuildContext context) {
     return values.asMap().entries.map((entry) {
       final index = entry.key;
       final value = entry.value;
@@ -52,7 +54,7 @@ class PieChartDisplay extends StatelessWidget {
         value: value,
         title: '${value.toStringAsFixed(1)}%',
         color: colors[index],
-        titleStyle: TextStylesOO.input,
+        titleStyle: TextStylesOO.input(context),
         radius: 80,
       );
     }).toList();

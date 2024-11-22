@@ -25,11 +25,11 @@ class AmountInput extends StatelessWidget {
       child: TextField(
         controller: controller,
         readOnly: readOnly,
-        style: TextStylesOO.input,
+        style: TextStylesOO.input(context),
         textAlign: TextAlign.right,
         decoration: InputDecoration(
           labelText: labelText,
-          labelStyle: TextStylesOO.label,
+          labelStyle: TextStylesOO.label(context),
           border: InputBorder.none,
         ),
       ),

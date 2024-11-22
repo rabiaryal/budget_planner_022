@@ -1,4 +1,5 @@
 import 'package:budget_planner/Utils/components/round_button.dart';
+import 'package:budget_planner/profilepage/setting/settinghome.dart';
 import 'package:budget_planner/profilepage/widget/listtilewidget.dart';
 import 'package:budget_planner/profilepage/uploadinfo/uploadinfo.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +86,7 @@ class _SettingHomePageState extends State<SettingHomePage> {
                 },
               ),
               ListTileWidget(
-                leadingIcon: Icons.switch_account,
+                leadingIcon: Icons.edit,
                 titleText: "Edit Info",
                 onPressed: () {
                   // Handle switch accounts action
@@ -95,6 +96,11 @@ class _SettingHomePageState extends State<SettingHomePage> {
                 leadingIcon: Icons.settings,
                 titleText: "Settings",
                 onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingHome(),
+                      ));
                   // Handle settings action
                 },
               ),

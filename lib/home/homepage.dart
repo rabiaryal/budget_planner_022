@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
           title: Text(
             "Budget Planner",
-            style: TextStylesOO.button,
+            style: TextStylesOO.button(context)
           ),
           actions: [
             IconButton(
