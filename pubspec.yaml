@@ -38,6 +38,7 @@ dependencies:
   flutter_dropdown: ^1.0.1+hotfix.1
   flutter_multiselect: ^1.0.0
   fluttertoast: ^8.2.8
+  font_awesome_flutter: ^10.8.0
   function_tree: ^0.9.1
   google_fonts: ^6.2.1
   marquee: ^2.3.0

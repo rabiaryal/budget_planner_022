@@ -88,7 +88,7 @@ class _SettingHomePageState extends State<SettingHomePage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const UploadInfoWidget()));
+                          builder: (context) => UploadInfoWidget()));
                   // Handle FAQ action
                 },
               ),
