@@ -1,4 +1,6 @@
 import 'package:budget_planner/Utils/style/textstyle.dart';
+import 'package:budget_planner/home/widget/pie_chart02.dart';
+
 import 'package:flutter/material.dart';
 
 class StatisticHomePage extends StatefulWidget {
@@ -9,6 +11,7 @@ class StatisticHomePage extends StatefulWidget {
 }
 
 class _StatisticHomePageState extends State<StatisticHomePage> {
+  List data = [10, 30, 40, 50];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +31,7 @@ class _StatisticHomePageState extends State<StatisticHomePage> {
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 8), // Space between title and sidebar
-          const   SingleChildScrollView(
+            const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 mainAxisSize:
@@ -45,12 +48,8 @@ class _StatisticHomePageState extends State<StatisticHomePage> {
           ],
         ),
       ),
-      body: const  Column(
-        children: const [
-          Center(
-            child: Text('Main Content Goes Here'),
-          ),
-        ],
+      body: const Column(
+        children: [PieChartSample2()],
       ),
     );
   }

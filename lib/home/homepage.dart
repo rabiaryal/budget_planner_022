@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const SettingHomePage()));
+
               },
               icon: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                           MaterialPageRoute(
                               builder: (context) => const DisplayDataPage()));
                     }),
-                SizedBox(
+             const   SizedBox(
                   height: 30,
                 ),
                 RoundButton(
